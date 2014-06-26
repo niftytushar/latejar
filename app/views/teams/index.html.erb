@@ -1,0 +1,12 @@
+<h1>Hello <%= session[:first_name] %></h1>
+<div>
+<h2>Jar History</h2>
+<% @team.each do |team| %>
+<%= team.first_name%> have to give <%=team.fine%> as fine <br />
+<%end%>
+</div>
+<div><p>Today you are late by <%=@late_by%> minutes</p></div>
+<%= link_to("Logout",{:controller => "access",:action => "logout"}) %>
+<% if @team.find(session[:user_id]).team_lead%>
+<%= link_to("Settings",{:action => "edit"})%>
+<% end %>
